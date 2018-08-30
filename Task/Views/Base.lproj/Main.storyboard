@@ -6,8 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -28,32 +26,37 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kMk-IV-Niv">
-                                            <rect key="frame" x="28" y="11.333333333333336" width="326.33333333333331" height="21"/>
+                                            <rect key="frame" x="8" y="11" width="346" height="20"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hv8-EN-afc">
-                                            <rect key="frame" x="362.33333333333331" y="-106" width="43.666666666666686" height="256"/>
+                                            <rect key="frame" x="362" y="-0.33333333333333215" width="44" height="44"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="44" id="c1m-11-4Qd"/>
+                                            </constraints>
                                             <connections>
                                                 <action selector="buttonTapped:" destination="0fW-sL-f3b" eventType="touchUpInside" id="Y7M-rX-pl5"/>
                                             </connections>
                                         </button>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="incomplete" translatesAutoresizingMaskIntoConstraints="NO" id="356-kY-Wzw">
-                                            <rect key="frame" x="362" y="-106" width="44" height="256"/>
+                                            <rect key="frame" x="362" y="-1" width="44" height="44"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="44" id="I4s-me-e1h"/>
+                                                <constraint firstAttribute="width" constant="44" id="Wed-JH-WpA"/>
+                                            </constraints>
                                         </imageView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="kMk-IV-Niv" firstAttribute="leading" secondItem="xrC-xh-U8u" secondAttribute="leadingMargin" constant="8" id="9yb-mK-KKO"/>
-                                        <constraint firstAttribute="trailing" secondItem="hv8-EN-afc" secondAttribute="trailing" constant="8" id="BGU-6Z-CTX"/>
-                                        <constraint firstItem="356-kY-Wzw" firstAttribute="height" secondItem="hv8-EN-afc" secondAttribute="height" id="Clk-nX-dJG"/>
-                                        <constraint firstItem="356-kY-Wzw" firstAttribute="width" secondItem="hv8-EN-afc" secondAttribute="width" id="EuP-Kg-piW"/>
-                                        <constraint firstItem="hv8-EN-afc" firstAttribute="centerY" secondItem="xrC-xh-U8u" secondAttribute="centerY" id="MOM-6o-ZMk"/>
-                                        <constraint firstItem="356-kY-Wzw" firstAttribute="centerY" secondItem="xrC-xh-U8u" secondAttribute="centerY" id="MjR-wn-8Sq"/>
-                                        <constraint firstItem="kMk-IV-Niv" firstAttribute="centerY" secondItem="xrC-xh-U8u" secondAttribute="centerY" id="TuG-8E-NEQ"/>
-                                        <constraint firstAttribute="trailing" secondItem="356-kY-Wzw" secondAttribute="trailing" constant="8" id="amc-9e-8JT"/>
-                                        <constraint firstItem="hv8-EN-afc" firstAttribute="width" secondItem="xrC-xh-U8u" secondAttribute="height" multiplier="1:1" id="fbA-Op-WvV"/>
-                                        <constraint firstItem="hv8-EN-afc" firstAttribute="leading" secondItem="kMk-IV-Niv" secondAttribute="trailing" constant="8" id="y7G-er-7eN"/>
+                                        <constraint firstItem="356-kY-Wzw" firstAttribute="leading" secondItem="hv8-EN-afc" secondAttribute="leading" id="KL7-vd-dFO"/>
+                                        <constraint firstItem="356-kY-Wzw" firstAttribute="trailing" secondItem="hv8-EN-afc" secondAttribute="trailing" id="Q8C-Sp-5j3"/>
+                                        <constraint firstItem="hv8-EN-afc" firstAttribute="centerY" secondItem="xrC-xh-U8u" secondAttribute="centerY" id="e1u-ds-dMF"/>
+                                        <constraint firstItem="356-kY-Wzw" firstAttribute="centerY" secondItem="xrC-xh-U8u" secondAttribute="centerY" id="g6t-OI-p3K"/>
+                                        <constraint firstItem="kMk-IV-Niv" firstAttribute="centerY" secondItem="xrC-xh-U8u" secondAttribute="centerY" id="ixs-hn-rgw"/>
+                                        <constraint firstItem="kMk-IV-Niv" firstAttribute="leading" secondItem="xrC-xh-U8u" secondAttribute="leading" constant="8" id="j0o-qT-3oX"/>
+                                        <constraint firstAttribute="trailing" secondItem="hv8-EN-afc" secondAttribute="trailing" constant="8" id="jTx-EY-dLh"/>
+                                        <constraint firstItem="hv8-EN-afc" firstAttribute="leading" secondItem="kMk-IV-Niv" secondAttribute="trailing" constant="8" id="jeS-vP-WTf"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -78,12 +81,12 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iWm-VH-wMg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="974.5" y="148.5"/>
+            <point key="canvasLocation" x="973.91304347826099" y="148.36956521739131"/>
         </scene>
         <!--Task Detail-->
         <scene sceneID="nHr-l2-bQS">
             <objects>
-                <tableViewController id="KdO-JE-ifb" customClass="TaskDetailTableViewController" sceneMemberID="viewController">
+                <tableViewController id="KdO-JE-ifb" customClass="TaskDetailTableViewController" customModule="Task" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="8QM-Nb-pQp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
