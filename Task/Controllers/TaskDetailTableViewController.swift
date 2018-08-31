@@ -57,10 +57,8 @@ class TaskDetailTableViewController: UITableViewController {
     }
     
     @IBAction func userTappedView(_ sender: Any) {
-        resignFirstResponder()
+        dueDateTextField.resignFirstResponder()
     }
-    
-    
     
     // MARK: Data Source
     

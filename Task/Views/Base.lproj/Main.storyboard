@@ -31,28 +31,20 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hv8-EN-afc">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hv8-EN-afc">
                                             <rect key="frame" x="362" y="-0.33333333333333215" width="44" height="44"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="44" id="c1m-11-4Qd"/>
+                                                <constraint firstAttribute="width" constant="44" id="chC-Z1-bvy"/>
                                             </constraints>
+                                            <state key="normal" image="incomplete"/>
                                             <connections>
                                                 <action selector="buttonTapped:" destination="0fW-sL-f3b" eventType="touchUpInside" id="Y7M-rX-pl5"/>
                                             </connections>
                                         </button>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="incomplete" translatesAutoresizingMaskIntoConstraints="NO" id="356-kY-Wzw">
-                                            <rect key="frame" x="362" y="-1" width="44" height="44"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="44" id="I4s-me-e1h"/>
-                                                <constraint firstAttribute="width" constant="44" id="Wed-JH-WpA"/>
-                                            </constraints>
-                                        </imageView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="356-kY-Wzw" firstAttribute="leading" secondItem="hv8-EN-afc" secondAttribute="leading" id="KL7-vd-dFO"/>
-                                        <constraint firstItem="356-kY-Wzw" firstAttribute="trailing" secondItem="hv8-EN-afc" secondAttribute="trailing" id="Q8C-Sp-5j3"/>
                                         <constraint firstItem="hv8-EN-afc" firstAttribute="centerY" secondItem="xrC-xh-U8u" secondAttribute="centerY" id="e1u-ds-dMF"/>
-                                        <constraint firstItem="356-kY-Wzw" firstAttribute="centerY" secondItem="xrC-xh-U8u" secondAttribute="centerY" id="g6t-OI-p3K"/>
                                         <constraint firstItem="kMk-IV-Niv" firstAttribute="centerY" secondItem="xrC-xh-U8u" secondAttribute="centerY" id="ixs-hn-rgw"/>
                                         <constraint firstItem="kMk-IV-Niv" firstAttribute="leading" secondItem="xrC-xh-U8u" secondAttribute="leading" constant="8" id="j0o-qT-3oX"/>
                                         <constraint firstAttribute="trailing" secondItem="hv8-EN-afc" secondAttribute="trailing" constant="8" id="jTx-EY-dLh"/>
@@ -91,6 +83,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <gestureRecognizers/>
                         <sections>
                             <tableViewSection headerTitle="Name" footerTitle="" id="PCQ-Pr-hs5">
                                 <cells>
@@ -173,6 +166,8 @@
                         <connections>
                             <outlet property="dataSource" destination="KdO-JE-ifb" id="a56-Vo-G4i"/>
                             <outlet property="delegate" destination="KdO-JE-ifb" id="Hnk-Ae-OfV"/>
+                            <outletCollection property="gestureRecognizers" destination="lUD-d3-ruZ" appends="YES" id="rdO-EW-fKq"/>
+                            <outletCollection property="gestureRecognizers" destination="lUD-d3-ruZ" appends="YES" id="yei-zu-2RV"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Task Detail" id="RNX-aG-t8q">
@@ -195,8 +190,8 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="59A-Qk-VJO" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" id="20Z-QN-Tgc">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="30" id="20Z-QN-Tgc">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="175"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <date key="date" timeIntervalSinceReferenceDate="557276992.43544805">
                         <!--2018-08-29 23:09:52 +0000-->

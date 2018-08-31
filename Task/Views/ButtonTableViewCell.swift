@@ -13,6 +13,17 @@ class ButtonTableViewCell: UITableViewCell {
 
     // MARK: - Properties
     
+    var task: Task? {
+        didSet{
+           updateViews()
+        }
+    }
+
+    func updateViews(){
+        guard let task = task else {return}
+        primaryLabel.text = task.name
+    }
+    
     var delegate: ButtonTableViewCellDelegate?
     
     @IBOutlet weak var primaryLabel: UILabel!
@@ -23,6 +34,7 @@ class ButtonTableViewCell: UITableViewCell {
     
     @IBAction func buttonTapped(_ sender: Any) {
         delegate?.buttonCellButtonTapped(self)
+        
     }
     
     
@@ -43,5 +55,6 @@ extension ButtonTableViewCell {
 }
 
 protocol ButtonTableViewCellDelegate {
-    func buttonCellButtonTapped(_ sender: ButtonTableViewCell)
+    func buttonCellButtonTapped(_ sender: ButtonTableViewCell) 
+
 }

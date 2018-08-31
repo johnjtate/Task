@@ -9,29 +9,31 @@
 import Foundation
 import CoreData
 
-class TaskController{
+class TaskController {
   
-    var tasks: [Task] = []
-    
-    init() {
-        tasks = fetchTasks()
-    }
-    
-    func fetchTasks() -> [Task] {
-        let request: NSFetchRequest<Task> = Task.fetchRequest()
-        return (try? CoreDataStack.context.fetch(request)) ?? []
-    }
-    
-    // shared instance
-    
     static let shared = TaskController()
+    
+    let fetchedResultsController: NSFetchedResultsController<Task> = {
+        
+        let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "isComplete", ascending: true), NSSortDescriptor(key: "due", ascending: true)]
+        
+        return NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: CoreDataStack.context, sectionNameKeyPath: "isComplete", cacheName: nil)
+    }()
+    
+    func load() {
+        do {
+            try TaskController.shared.fetchedResultsController.performFetch()
+        } catch {
+            print("There was an error in \(#function) : \(error) \(error.localizedDescription)")
+        }
+    }
     
     // CRUD
     
     func add(taskWithName name: String, notes: String?, due: Date?) {
         let _ = Task(name: name, notes: notes, due: due)
         saveToPersistentStore()
-        tasks = fetchTasks()
     }
     
     func update(task: Task, name: String, notes: String?, due: Date?) {
@@ -39,13 +41,11 @@ class TaskController{
         task.notes = notes
         task.due = due
         saveToPersistentStore()
-        tasks = fetchTasks()
     }
     
     func remove(task: Task) {
         task.managedObjectContext?.delete(task)
         saveToPersistentStore()
-        tasks = fetchTasks()
     }
     
     func toggleIsCompleteFor(task: Task) {
@@ -66,3 +66,5 @@ class TaskController{
     }
 
 }
+
+
