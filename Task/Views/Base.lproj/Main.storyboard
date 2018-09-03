@@ -26,16 +26,16 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kMk-IV-Niv">
-                                            <rect key="frame" x="8" y="11" width="346" height="20"/>
+                                            <rect key="frame" x="8" y="11" width="350" height="20"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hv8-EN-afc">
-                                            <rect key="frame" x="362" y="-0.33333333333333215" width="44" height="44"/>
+                                            <rect key="frame" x="366" y="1.6666666666666679" width="40" height="40"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="44" id="c1m-11-4Qd"/>
-                                                <constraint firstAttribute="width" constant="44" id="chC-Z1-bvy"/>
+                                                <constraint firstAttribute="height" constant="40" id="Rvl-hH-qJf"/>
+                                                <constraint firstAttribute="width" constant="40" id="q2q-IF-xIf"/>
                                             </constraints>
                                             <state key="normal" image="incomplete"/>
                                             <connections>
