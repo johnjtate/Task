@@ -13,7 +13,10 @@ class TaskListTableViewController: UITableViewController, NSFetchedResultsContro
     
     func buttonCellButtonTapped(_ sender: ButtonTableViewCell) {
         guard let index = tableView.indexPath(for: sender) else {return}
-        let task = TaskController.shared.fetchedResultsController.object(at: index)
+        guard let fetchedObjects = TaskController.shared.fetchedResultsController.fetchedObjects else { return }
+        guard let task = sender.task else {return}
+//        let task = fetchedObjects[index.row]
+        //let task = TaskController.shared.fetchedResultsController.object(at: index)
         TaskController.shared.toggleIsCompleteFor(task: task)
     }
 
@@ -25,18 +28,21 @@ class TaskListTableViewController: UITableViewController, NSFetchedResultsContro
 
     // MARK: - MSFetchedResultsControllerDelegate
     
-    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
-        
-        tableView.reloadData()
-        // able to put something here to protect against crashing when one of the table sections becomes empty?
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        print("will change")
+        tableView.beginUpdates()
     }
-    
+ 
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        print("did change")
+        tableView.endUpdates()
+    }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return TaskController.shared.fetchedResultsController.sections!.count
+        return TaskController.shared.fetchedResultsController.sections?.count ?? 0
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -48,16 +54,19 @@ class TaskListTableViewController: UITableViewController, NSFetchedResultsContro
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "taskListCell", for: indexPath) as? ButtonTableViewCell
-        let task = TaskController.shared.fetchedResultsController.fetchedObjects?[indexPath.row]
+        let task = TaskController.shared.fetchedResultsController.object(at: indexPath)
         cell?.delegate = self 
         cell?.task = task
         return cell ?? UITableViewCell()
     }
  
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        guard let sectionInfo = TaskController.shared.fetchedResultsController.sections?[section] else {return nil}
-        
-        return section == 0 ? "Incomplete" : "Complete"
+        guard let sectionInfo = TaskController.shared.fetchedResultsController.sections?[section] else {return nil}
+        switch sectionInfo.name {
+        case "0": return "Incomplete"
+        case "1": return "Complete"
+        default: return ""
+        }
     }
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
