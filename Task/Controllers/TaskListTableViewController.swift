@@ -14,10 +14,9 @@ class TaskListTableViewController: UITableViewController, NSFetchedResultsContro
     func buttonCellButtonTapped(_ sender: ButtonTableViewCell) {
         guard let index = tableView.indexPath(for: sender) else {return}
         guard let fetchedObjects = TaskController.shared.fetchedResultsController.fetchedObjects else { return }
-        guard let task = sender.task else {return}
-//        let task = fetchedObjects[index.row]
-        //let task = TaskController.shared.fetchedResultsController.object(at: index)
+        let task = fetchedObjects[index.row]
         TaskController.shared.toggleIsCompleteFor(task: task)
+        self.tableView.reloadData()
     }
 
     override func viewDidLoad() {
